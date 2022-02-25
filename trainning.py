@@ -20,7 +20,7 @@ import numpy as np
 import os 
 import sys
 
-os.chdir("C:/Users/Inès/Cours M2 SISE/Atelier - Ricco R/Mlflow/Project-test2")
+#os.chdir("C:/Users/Inès/Cours M2 SISE/Atelier - Ricco R/Mlflow/Project-test2")
 
 data_path = "iris.csv"
 
