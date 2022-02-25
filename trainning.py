@@ -18,6 +18,7 @@ import pandas as pd
 import numpy as np
 
 import os 
+import sys
 
 os.chdir("C:/Users/Inès/Cours M2 SISE/Atelier - Ricco R/Mlflow/Project-test2")
 
@@ -44,8 +45,13 @@ def load_data():
         
     return train_x,test_x, train_y,test_y
 
-def train(alpha=0.5, ratio=0.5):
+
     
+if __name__ == "__main__":
+    
+    alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.05
+    ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.05
+
     X_train, X_test, y_train, y_test = load_data()
     
     with mlflow.start_run():
@@ -65,10 +71,3 @@ def train(alpha=0.5, ratio=0.5):
         
         mlflow.sklearn.autolog()
 
-if __name__ == "__main__":
-    
-
-    train()
-    train(alpha=0.4,ratio=0.4)
-    train(alpha=0.1,ratio=0.2)
-        
