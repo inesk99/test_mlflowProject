@@ -65,8 +65,10 @@ def train(alpha=0.5, ratio=0.5):
         
         mlflow.sklearn.autolog()
 
+if __name__ == "__main__":
+    
 
-train()
-train(alpha=0.4,ratio=0.4)
-train(alpha=0.1,ratio=0.2)
+    train()
+    train(alpha=0.4,ratio=0.4)
+    train(alpha=0.1,ratio=0.2)
         
