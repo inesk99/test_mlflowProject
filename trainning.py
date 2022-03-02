@@ -54,7 +54,6 @@ if __name__ == "__main__":
     
     X_train, X_test, y_train, y_test = load_data()
     
-    mlflow.set_experiment("Exercice mlflow project")
     
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=ratio)
