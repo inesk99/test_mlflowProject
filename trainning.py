@@ -45,14 +45,16 @@ def load_data():
         
     return train_x,test_x, train_y,test_y
 
+alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.05
+ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.05
 
     
 if __name__ == "__main__":
     
-    alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.05
-    ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.05
-
+    
     X_train, X_test, y_train, y_test = load_data()
+    
+    mlflow.set_experiment("Exercice mlflow project")
     
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=ratio)
@@ -64,6 +66,7 @@ if __name__ == "__main__":
         print("rmse %s" % rmse)
         print("mae %s" % mae)
         print("r2 %s" %r2)
+        
         
         mlflow.log_params({"alpha":alpha,"l1_ratio":ratio})
         mlflow.log_metrics({"rmse":rmse,"mae":mae,"r2":r2})
